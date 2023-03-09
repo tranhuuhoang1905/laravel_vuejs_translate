@@ -26,5 +26,14 @@ Route::group(['prefix' => 'post'], function () {
     Route::delete('delete/{id}', 'App\Http\Controllers\API\PostController@delete');
 });
 
+Route::get('languages', 'App\Http\Controllers\API\LanguagesController@index');
+Route::group(['prefix' => 'language'], function () {
+    Route::post('add', 'App\Http\Controllers\API\LanguagesController@add');
+    Route::get('edit/{id}', 'App\Http\Controllers\API\LanguagesController@edit');
+    Route::post('update/{id}', 'App\Http\Controllers\API\LanguagesController@update');
+    //người có role:admin mới có quyền truy cập link api/posts/delete 
+    Route::delete('delete/{id}', 'App\Http\Controllers\API\LanguagesController@delete');
+});
+
 Route::post('login', 'App\Http\Controllers\API\AuthController@login');
 Route::post('register', 'App\Http\Controllers\API\AuthController@register');

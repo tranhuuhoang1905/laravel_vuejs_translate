@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('home');
 // });
-// Route::get('/vue', function () {
-//     return view('vue');
-// });
-// Route::view('/{any}', 'home')
-//     ->where('any', '.*');
-Route::get('{any}', function () {
+
+
+Route::get('/', function () {
     return view('layouts.app');
-})->where('any', '.*');
+});
+
+
+Route::get('/{path}', function ($path) {
+    if (strpos($path, 'admin') !== false) {
+        return view('layouts.admin');
+    } else {
+        return view('layouts.app');
+    }
+})->where('path', '.*');
