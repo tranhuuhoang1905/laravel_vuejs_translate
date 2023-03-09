@@ -13,7 +13,7 @@ class Languages extends Model
     protected $fillable = [
         'name',
         'description',
-        'state',
+        'status',
     ];
 
     // protected $casts = [

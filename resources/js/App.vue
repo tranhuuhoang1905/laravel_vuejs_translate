@@ -3,27 +3,23 @@
         <div class="text-center" style="margin: 20px 0px 20px 0px;">
             <span class="text-secondary">Laravel Home Example</span>
         </div>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse">
-                <div class="navbar-nav">
-                    <router-link to="/" class="nav-item nav-link">AllPost</router-link>
-                    <router-link to="/add" class="nav-item nav-link">Add Post</router-link>
-                    <a href="/login" class="nav-item nav-link">Login</a>
-                    <a href="/register" class="nav-item nav-link">Register</a>
-                    <a href="/admin" class="nav-item nav-link">Page Admin</a>
-                </div>
-            </div>
-        </nav>
+        <NavbarView />
         <br />
         <router-view></router-view>
     </div>
 </template>
- 
+  
 <script>
+import NavbarView from './components/view/NavBarView.vue'
+
 export default {
+    name: 'Home',
+    components: {
+        NavbarView
+    },
     mounted() {
-        console.log('Component mounted.')
+        console.log('Home mounted.')
     }
 }
 </script>
+  
